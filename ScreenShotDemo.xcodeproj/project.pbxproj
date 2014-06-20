@@ -19,6 +19,13 @@
 		98D0F9B7194FDEAC005B484D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D0F99F194FDEAC005B484D /* UIKit.framework */; };
 		98D0F9BF194FDEAC005B484D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98D0F9BD194FDEAC005B484D /* InfoPlist.strings */; };
 		98D0F9C1194FDEAC005B484D /* ScreenShotDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0F9C0194FDEAC005B484D /* ScreenShotDemoTests.m */; };
+		98D0F9CC194FDEE3005B484D /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0F9CB194FDEE3005B484D /* MYViewController.m */; };
+		98D0F9D0194FDF5B005B484D /* MYScreenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0F9CF194FDF5B005B484D /* MYScreenshot.m */; };
+		98D0F9D7194FE0ED005B484D /* screenshottest.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D0F9D6194FE0ED005B484D /* screenshottest.png */; };
+		98D0FAB0195128F3005B484D /* MYDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0FAAF195128F3005B484D /* MYDrawView.m */; };
+		98D0FAB219528A36005B484D /* MYViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D0FAB119528A36005B484D /* MYViewController.xib */; };
+		98D0FABA195292F8005B484D /* MYStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0FAB9195292F8005B484D /* MYStroke.m */; };
+		98D0FABD1952943A005B484D /* MYPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0FABC1952943A005B484D /* MYPalette.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,18 @@
 		98D0F9BC194FDEAC005B484D /* ScreenShotDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScreenShotDemoTests-Info.plist"; sourceTree = "<group>"; };
 		98D0F9BE194FDEAC005B484D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		98D0F9C0194FDEAC005B484D /* ScreenShotDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShotDemoTests.m; sourceTree = "<group>"; };
+		98D0F9CA194FDEE3005B484D /* MYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewController.h; sourceTree = "<group>"; };
+		98D0F9CB194FDEE3005B484D /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
+		98D0F9CE194FDF5B005B484D /* MYScreenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYScreenshot.h; sourceTree = "<group>"; };
+		98D0F9CF194FDF5B005B484D /* MYScreenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYScreenshot.m; sourceTree = "<group>"; };
+		98D0F9D6194FE0ED005B484D /* screenshottest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshottest.png; sourceTree = "<group>"; };
+		98D0FAAE195128F3005B484D /* MYDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDrawView.h; sourceTree = "<group>"; };
+		98D0FAAF195128F3005B484D /* MYDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDrawView.m; sourceTree = "<group>"; };
+		98D0FAB119528A36005B484D /* MYViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYViewController.xib; sourceTree = "<group>"; };
+		98D0FAB8195292F8005B484D /* MYStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYStroke.h; sourceTree = "<group>"; };
+		98D0FAB9195292F8005B484D /* MYStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYStroke.m; sourceTree = "<group>"; };
+		98D0FABB1952943A005B484D /* MYPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPalette.h; sourceTree = "<group>"; };
+		98D0FABC1952943A005B484D /* MYPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPalette.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +126,12 @@
 		98D0F9A1194FDEAC005B484D /* ScreenShotDemo */ = {
 			isa = PBXGroup;
 			children = (
+				98D0F9CD194FDF5B005B484D /* sreenshot */,
 				98D0F9AA194FDEAC005B484D /* MYAppDelegate.h */,
 				98D0F9AB194FDEAC005B484D /* MYAppDelegate.m */,
+				98D0F9CA194FDEE3005B484D /* MYViewController.h */,
+				98D0F9CB194FDEE3005B484D /* MYViewController.m */,
+				98D0FAB119528A36005B484D /* MYViewController.xib */,
 				98D0F9AD194FDEAC005B484D /* Images.xcassets */,
 				98D0F9A2194FDEAC005B484D /* Supporting Files */,
 			);
@@ -118,6 +141,7 @@
 		98D0F9A2194FDEAC005B484D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				98D0F9D5194FE0ED005B484D /* images */,
 				98D0F9A3194FDEAC005B484D /* ScreenShotDemo-Info.plist */,
 				98D0F9A4194FDEAC005B484D /* InfoPlist.strings */,
 				98D0F9A7194FDEAC005B484D /* main.m */,
@@ -142,6 +166,29 @@
 				98D0F9BD194FDEAC005B484D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		98D0F9CD194FDF5B005B484D /* sreenshot */ = {
+			isa = PBXGroup;
+			children = (
+				98D0F9CE194FDF5B005B484D /* MYScreenshot.h */,
+				98D0F9CF194FDF5B005B484D /* MYScreenshot.m */,
+				98D0FAAE195128F3005B484D /* MYDrawView.h */,
+				98D0FAAF195128F3005B484D /* MYDrawView.m */,
+				98D0FAB8195292F8005B484D /* MYStroke.h */,
+				98D0FAB9195292F8005B484D /* MYStroke.m */,
+				98D0FABB1952943A005B484D /* MYPalette.h */,
+				98D0FABC1952943A005B484D /* MYPalette.m */,
+			);
+			path = sreenshot;
+			sourceTree = "<group>";
+		};
+		98D0F9D5194FE0ED005B484D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				98D0F9D6194FE0ED005B484D /* screenshottest.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +269,8 @@
 			files = (
 				98D0F9A6194FDEAC005B484D /* InfoPlist.strings in Resources */,
 				98D0F9AE194FDEAC005B484D /* Images.xcassets in Resources */,
+				98D0FAB219528A36005B484D /* MYViewController.xib in Resources */,
+				98D0F9D7194FE0ED005B484D /* screenshottest.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +289,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98D0F9CC194FDEE3005B484D /* MYViewController.m in Sources */,
+				98D0F9D0194FDF5B005B484D /* MYScreenshot.m in Sources */,
 				98D0F9AC194FDEAC005B484D /* MYAppDelegate.m in Sources */,
+				98D0FABD1952943A005B484D /* MYPalette.m in Sources */,
+				98D0FABA195292F8005B484D /* MYStroke.m in Sources */,
+				98D0FAB0195128F3005B484D /* MYDrawView.m in Sources */,
 				98D0F9A8194FDEAC005B484D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

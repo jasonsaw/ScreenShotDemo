@@ -70,7 +70,6 @@
     }
 }
 
-// Start new dictionary for each touch, with points and color
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     

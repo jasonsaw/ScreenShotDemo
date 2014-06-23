@@ -17,6 +17,7 @@
 
 @interface MYViewController ()
 
+@property (nonatomic, strong) MYDrawView            *myDrawView;
 @property (nonatomic, strong) MYPalette             *paletteView;
 @property (nonatomic, strong) IBOutlet UIImageView  *viewBackImage;
 @property (nonatomic, strong) IBOutlet UIView       *toolView;
@@ -40,8 +41,12 @@
     [super viewDidLoad];
     self.colorArray = @[[UIColor redColor],[UIColor yellowColor],[UIColor blueColor],[UIColor greenColor],[UIColor grayColor],[UIColor lightGrayColor]];
     self.title = @"涂鸦";
+//    self.myDrawView = [[MYDrawView alloc] initWithFrame:self.view.bounds];
+//    self.myDrawView.currentColor = [UIColor redColor];
+//    self.myDrawView.currentSize = 5;
+//    [self.view addSubview:self.myDrawView];
+    
     self.paletteView = [[MYPalette alloc] initWithFrame:self.view.bounds];
-    self.paletteView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.paletteView];
     [self createDrawFunction];
     [self.view bringSubviewToFront:self.toolView];
@@ -59,18 +64,24 @@
         case 0:
             //撤销
             [self.paletteView undo];
+//            [self.myDrawView undo];
             break;
         case 1:
             //回撤
             [self.paletteView redo];
+//            [self.myDrawView redo];
             break;
         case 2:
             //橡皮擦
             self.paletteView.isEarse = YES;
+//            self.myDrawView.iseasre = YES;
             break;
         case 3:
             //清空
             [self.paletteView clearStroks];
+            self.paletteView.currentColor = [UIColor redColor];
+//            [self.myDrawView clearCanvas];
+//            self.myDrawView.currentColor = [UIColor redColor];
             break;
         default:
             break;
@@ -79,6 +90,9 @@
     if (button.tag>3) {
         self.paletteView.isEarse = NO;
         self.paletteView.currentColor = [self.colorArray objectAtIndex:button.tag-4];
+        
+//        self.myDrawView.iseasre = NO;
+//        self.myDrawView.currentColor = [self.colorArray objectAtIndex:button.tag-4];
     }
 }
 

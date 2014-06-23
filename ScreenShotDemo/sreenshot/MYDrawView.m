@@ -24,7 +24,8 @@
         // Initialization code
         self.arrayStrokes = [[NSMutableArray alloc] init];
         self.arrayAbandonedStrokes = [[NSMutableArray alloc] init];
-        self.layer.backgroundColor = [[UIColor clearColor] CGColor];
+        self.backgroundColor = [UIColor clearColor];
+        self.iseasre = false;
     }
     return self;
 }
@@ -32,28 +33,20 @@
 - (void)drawRect:(CGRect)rect
 {
     //绘制图片
-    int width = self.pickedImage.size.width;
-    int height = self.pickedImage.size.height;
-    CGRect rectForImage = CGRectMake(0,0, width, height);
-    [self.pickedImage drawInRect:rectForImage];
+//    int width = self.pickedImage.size.width;
+//    int height = self.pickedImage.size.height;
+//    CGRect rectForImage = CGRectMake(0,0, width, height);
+//    [self.pickedImage drawInRect:rectForImage];
     
     if (self.arrayStrokes)
     {
-        int arraynum = 0;
-        
         for (NSDictionary *dictStroke in self.arrayStrokes)
         {
             NSArray *arrayPointsInstroke = [dictStroke objectForKey:@"points"];
-            UIColor *color = [dictStroke objectForKey:@"color"];
             float size = [[dictStroke objectForKey:@"size"] floatValue];
-
-            [color set];
             UIBezierPath* pathLines = [UIBezierPath bezierPath];
-            
-            if ([color isEqual:[UIColor clearColor]]) {
-                [pathLines strokeWithBlendMode:kCGBlendModeDestinationIn alpha:0];
-            }
             CGPoint pointStart = CGPointFromString([arrayPointsInstroke objectAtIndex:0]);
+            [pathLines removeAllPoints];
             [pathLines moveToPoint:pointStart];
             for (int i = 0; i < (arrayPointsInstroke.count - 1); i++)
             {
@@ -63,9 +56,15 @@
             pathLines.lineWidth = size;
             pathLines.lineJoinStyle = kCGLineJoinRound; //拐角的处理
             pathLines.lineCapStyle = kCGLineCapRound; //最后点的处理
-            [pathLines stroke];
-            
-            arraynum++;//统计笔画数量
+            UIColor *color = [dictStroke objectForKey:@"color"];
+            BOOL easre = [[dictStroke objectForKey:@"iseasre"] boolValue];
+            if (easre) {
+                pathLines.lineWidth = size*2;
+                [pathLines strokeWithBlendMode:kCGBlendModeClear alpha:0];
+            } else {
+                [color set];
+                [pathLines stroke];
+            }
         }
     }
 }
@@ -82,6 +81,11 @@
     [dictStroke setObject:arrayPointsInStroke forKey:@"points"];
     [dictStroke setObject:self.currentColor forKey:@"color"];
     [dictStroke setObject:[NSNumber numberWithFloat:self.currentSize] forKey:@"size"];
+    if (self.iseasre) {
+        [dictStroke setObject:[NSNumber numberWithBool:YES] forKey:@"iseasre"];
+    } else {
+        [dictStroke setObject:[NSNumber numberWithBool:NO] forKey:@"iseasre"];
+    }
     
     [self.arrayStrokes addObject:dictStroke];//添加的是一个字典：点数组，颜色，粗细
 }
@@ -95,24 +99,16 @@
     NSMutableArray *arrayPointsInStroke = [[self.arrayStrokes lastObject] objectForKey:@"points"];
     [arrayPointsInStroke addObject:NSStringFromCGPoint(point)];
     
-    
-    CGRect rectToRedraw = CGRectMake(\
-                                     ((prevPoint.x>point.x)?point.x:prevPoint.x)-self.currentSize,\
-                                     ((prevPoint.y>point.y)?point.y:prevPoint.y)-self.currentSize,\
-                                     fabs(point.x-prevPoint.x)+2*self.currentSize,\
-                                     fabs(point.y-prevPoint.y)+2*self.currentSize\
-                                     );
+//    CGRect rectToRedraw = CGRectMake(\
+//                                     ((prevPoint.x>point.x)?point.x:prevPoint.x)-self.currentSize,\
+//                                     ((prevPoint.y>point.y)?point.y:prevPoint.y)-self.currentSize,\
+//                                     fabs(point.x-prevPoint.x)+2*self.currentSize,\
+//                                     fabs(point.y-prevPoint.y)+2*self.currentSize\
+//                                     );
     //Marks the specified rectangle of the receiver as needing to be redrawn.
     //在指定的rect范围进行重绘
-    [self setNeedsDisplayInRect:rectToRedraw];
-}
-
-- (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
-
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-
+    [self setNeedsDisplay];
+//    [self setNeedsDisplayInRect:rectToRedraw];
 }
 
 //撤销

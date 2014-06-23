@@ -26,6 +26,7 @@
 		98D0FAB219528A36005B484D /* MYViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D0FAB119528A36005B484D /* MYViewController.xib */; };
 		98D0FABA195292F8005B484D /* MYStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0FAB9195292F8005B484D /* MYStroke.m */; };
 		98D0FABD1952943A005B484D /* MYPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0FABC1952943A005B484D /* MYPalette.m */; };
+		98D0FABF19542C1B005B484D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D0FABE19542C1B005B484D /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		98D0FAB9195292F8005B484D /* MYStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYStroke.m; sourceTree = "<group>"; };
 		98D0FABB1952943A005B484D /* MYPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPalette.h; sourceTree = "<group>"; };
 		98D0FABC1952943A005B484D /* MYPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPalette.m; sourceTree = "<group>"; };
+		98D0FABE19542C1B005B484D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98D0FABF19542C1B005B484D /* QuartzCore.framework in Frameworks */,
 				98D0F99E194FDEAC005B484D /* CoreGraphics.framework in Frameworks */,
 				98D0F9A0194FDEAC005B484D /* UIKit.framework in Frameworks */,
 				98D0F99C194FDEAC005B484D /* Foundation.framework in Frameworks */,
@@ -115,6 +118,7 @@
 		98D0F99A194FDEAC005B484D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98D0FABE19542C1B005B484D /* QuartzCore.framework */,
 				98D0F99B194FDEAC005B484D /* Foundation.framework */,
 				98D0F99D194FDEAC005B484D /* CoreGraphics.framework */,
 				98D0F99F194FDEAC005B484D /* UIKit.framework */,
@@ -492,6 +496,7 @@
 				98D0F9C6194FDEAC005B484D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98D0F9C7194FDEAC005B484D /* Build configuration list for PBXNativeTarget "ScreenShotDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +505,7 @@
 				98D0F9C9194FDEAC005B484D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

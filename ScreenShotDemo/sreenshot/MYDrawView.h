@@ -10,7 +10,7 @@
 
 @interface MYDrawView : UIView
 
-
+@property (nonatomic,assign) BOOL    iseasre;
 @property (nonatomic,strong) UIImage *pickedImage;
 @property (nonatomic,strong) UIColor *currentColor;//保存当前画笔的颜色
 @property (nonatomic,assign) float    currentSize;//当前画笔的大小

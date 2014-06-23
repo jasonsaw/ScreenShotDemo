@@ -18,6 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor clearColor];
         stroks = [[NSMutableArray alloc] init];
         redoStrokes = [[NSMutableArray alloc] init];
         self.currentColor = [UIColor redColor];

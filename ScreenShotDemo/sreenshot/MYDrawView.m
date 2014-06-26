@@ -33,11 +33,6 @@
 - (void)drawRect:(CGRect)rect
 {
     //绘制图片
-//    int width = self.pickedImage.size.width;
-//    int height = self.pickedImage.size.height;
-//    CGRect rectForImage = CGRectMake(0,0, width, height);
-//    [self.pickedImage drawInRect:rectForImage];
-    
     if (self.arrayStrokes)
     {
         for (NSDictionary *dictStroke in self.arrayStrokes)
@@ -99,16 +94,16 @@
     NSMutableArray *arrayPointsInStroke = [[self.arrayStrokes lastObject] objectForKey:@"points"];
     [arrayPointsInStroke addObject:NSStringFromCGPoint(point)];
     
-//    CGRect rectToRedraw = CGRectMake(\
-//                                     ((prevPoint.x>point.x)?point.x:prevPoint.x)-self.currentSize,\
-//                                     ((prevPoint.y>point.y)?point.y:prevPoint.y)-self.currentSize,\
-//                                     fabs(point.x-prevPoint.x)+2*self.currentSize,\
-//                                     fabs(point.y-prevPoint.y)+2*self.currentSize\
-//                                     );
+    CGRect rectToRedraw = CGRectMake(\
+                                     ((prevPoint.x>point.x)?point.x:prevPoint.x)-self.currentSize,\
+                                     ((prevPoint.y>point.y)?point.y:prevPoint.y)-self.currentSize,\
+                                     fabs(point.x-prevPoint.x)+2*self.currentSize,\
+                                     fabs(point.y-prevPoint.y)+2*self.currentSize\
+                                     );
     //Marks the specified rectangle of the receiver as needing to be redrawn.
     //在指定的rect范围进行重绘
-    [self setNeedsDisplay];
-//    [self setNeedsDisplayInRect:rectToRedraw];
+//    [self setNeedsDisplay];
+    [self setNeedsDisplayInRect:rectToRedraw];
 }
 
 //撤销

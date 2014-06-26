@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9891A1D0195A762F00F10712 /* MYScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9891A1CF195A762F00F10712 /* MYScreenShotViewController.m */; };
+		9891A1D3195A795900F10712 /* MYScreenPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9891A1D2195A795900F10712 /* MYScreenPlot.m */; };
+		9891A1D7195ACB9100F10712 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9891A1D4195ACB9100F10712 /* 1.png */; };
+		9891A1D8195ACB9100F10712 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9891A1D5195ACB9100F10712 /* 2.png */; };
+		9891A1D9195ACB9100F10712 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9891A1D6195ACB9100F10712 /* 3.png */; };
+		9891A1DC195BB6B500F10712 /* MYEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9891A1DB195BB6B500F10712 /* MYEditView.m */; };
+		9891A1DF195BC5FB00F10712 /* MYDrawCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9891A1DE195BC5FB00F10712 /* MYDrawCell.m */; };
+		9891A1E2195C1ADA00F10712 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 9891A1E1195C1ADA00F10712 /* delete.png */; };
 		98D0F99C194FDEAC005B484D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D0F99B194FDEAC005B484D /* Foundation.framework */; };
 		98D0F99E194FDEAC005B484D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D0F99D194FDEAC005B484D /* CoreGraphics.framework */; };
 		98D0F9A0194FDEAC005B484D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D0F99F194FDEAC005B484D /* UIKit.framework */; };
@@ -20,7 +28,6 @@
 		98D0F9BF194FDEAC005B484D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98D0F9BD194FDEAC005B484D /* InfoPlist.strings */; };
 		98D0F9C1194FDEAC005B484D /* ScreenShotDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0F9C0194FDEAC005B484D /* ScreenShotDemoTests.m */; };
 		98D0F9CC194FDEE3005B484D /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0F9CB194FDEE3005B484D /* MYViewController.m */; };
-		98D0F9D0194FDF5B005B484D /* MYScreenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0F9CF194FDF5B005B484D /* MYScreenshot.m */; };
 		98D0F9D7194FE0ED005B484D /* screenshottest.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D0F9D6194FE0ED005B484D /* screenshottest.png */; };
 		98D0FAB0195128F3005B484D /* MYDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D0FAAF195128F3005B484D /* MYDrawView.m */; };
 		98D0FAB219528A36005B484D /* MYViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D0FAB119528A36005B484D /* MYViewController.xib */; };
@@ -40,6 +47,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9891A1CE195A762F00F10712 /* MYScreenShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYScreenShotViewController.h; sourceTree = "<group>"; };
+		9891A1CF195A762F00F10712 /* MYScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYScreenShotViewController.m; sourceTree = "<group>"; };
+		9891A1D1195A795900F10712 /* MYScreenPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYScreenPlot.h; sourceTree = "<group>"; };
+		9891A1D2195A795900F10712 /* MYScreenPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYScreenPlot.m; sourceTree = "<group>"; };
+		9891A1D4195ACB9100F10712 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		9891A1D5195ACB9100F10712 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		9891A1D6195ACB9100F10712 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		9891A1DA195BB6B500F10712 /* MYEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEditView.h; sourceTree = "<group>"; };
+		9891A1DB195BB6B500F10712 /* MYEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEditView.m; sourceTree = "<group>"; };
+		9891A1DD195BC5FB00F10712 /* MYDrawCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDrawCell.h; sourceTree = "<group>"; };
+		9891A1DE195BC5FB00F10712 /* MYDrawCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDrawCell.m; sourceTree = "<group>"; };
+		9891A1E1195C1ADA00F10712 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		98D0F998194FDEAC005B484D /* ScreenShotDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenShotDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98D0F99B194FDEAC005B484D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		98D0F99D194FDEAC005B484D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,8 +77,6 @@
 		98D0F9C0194FDEAC005B484D /* ScreenShotDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShotDemoTests.m; sourceTree = "<group>"; };
 		98D0F9CA194FDEE3005B484D /* MYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewController.h; sourceTree = "<group>"; };
 		98D0F9CB194FDEE3005B484D /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
-		98D0F9CE194FDF5B005B484D /* MYScreenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYScreenshot.h; sourceTree = "<group>"; };
-		98D0F9CF194FDF5B005B484D /* MYScreenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYScreenshot.m; sourceTree = "<group>"; };
 		98D0F9D6194FE0ED005B484D /* screenshottest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshottest.png; sourceTree = "<group>"; };
 		98D0FAAE195128F3005B484D /* MYDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDrawView.h; sourceTree = "<group>"; };
 		98D0FAAF195128F3005B484D /* MYDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDrawView.m; sourceTree = "<group>"; };
@@ -96,6 +113,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9891A1E0195BC7EF00F10712 /* shapeDraw */ = {
+			isa = PBXGroup;
+			children = (
+				9891A1DA195BB6B500F10712 /* MYEditView.h */,
+				9891A1DB195BB6B500F10712 /* MYEditView.m */,
+				9891A1DD195BC5FB00F10712 /* MYDrawCell.h */,
+				9891A1DE195BC5FB00F10712 /* MYDrawCell.m */,
+			);
+			name = shapeDraw;
+			sourceTree = "<group>";
+		};
 		98D0F98F194FDEAC005B484D = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +164,8 @@
 				98D0F9CA194FDEE3005B484D /* MYViewController.h */,
 				98D0F9CB194FDEE3005B484D /* MYViewController.m */,
 				98D0FAB119528A36005B484D /* MYViewController.xib */,
+				9891A1CE195A762F00F10712 /* MYScreenShotViewController.h */,
+				9891A1CF195A762F00F10712 /* MYScreenShotViewController.m */,
 				98D0F9AD194FDEAC005B484D /* Images.xcassets */,
 				98D0F9A2194FDEAC005B484D /* Supporting Files */,
 			);
@@ -175,14 +205,15 @@
 		98D0F9CD194FDF5B005B484D /* sreenshot */ = {
 			isa = PBXGroup;
 			children = (
-				98D0F9CE194FDF5B005B484D /* MYScreenshot.h */,
-				98D0F9CF194FDF5B005B484D /* MYScreenshot.m */,
+				9891A1E0195BC7EF00F10712 /* shapeDraw */,
 				98D0FAAE195128F3005B484D /* MYDrawView.h */,
 				98D0FAAF195128F3005B484D /* MYDrawView.m */,
 				98D0FAB8195292F8005B484D /* MYStroke.h */,
 				98D0FAB9195292F8005B484D /* MYStroke.m */,
 				98D0FABB1952943A005B484D /* MYPalette.h */,
 				98D0FABC1952943A005B484D /* MYPalette.m */,
+				9891A1D1195A795900F10712 /* MYScreenPlot.h */,
+				9891A1D2195A795900F10712 /* MYScreenPlot.m */,
 			);
 			path = sreenshot;
 			sourceTree = "<group>";
@@ -190,6 +221,10 @@
 		98D0F9D5194FE0ED005B484D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9891A1E1195C1ADA00F10712 /* delete.png */,
+				9891A1D4195ACB9100F10712 /* 1.png */,
+				9891A1D5195ACB9100F10712 /* 2.png */,
+				9891A1D6195ACB9100F10712 /* 3.png */,
 				98D0F9D6194FE0ED005B484D /* screenshottest.png */,
 			);
 			path = images;
@@ -271,10 +306,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9891A1E2195C1ADA00F10712 /* delete.png in Resources */,
+				9891A1D8195ACB9100F10712 /* 2.png in Resources */,
 				98D0F9A6194FDEAC005B484D /* InfoPlist.strings in Resources */,
 				98D0F9AE194FDEAC005B484D /* Images.xcassets in Resources */,
 				98D0FAB219528A36005B484D /* MYViewController.xib in Resources */,
 				98D0F9D7194FE0ED005B484D /* screenshottest.png in Resources */,
+				9891A1D9195ACB9100F10712 /* 3.png in Resources */,
+				9891A1D7195ACB9100F10712 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +333,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				98D0F9CC194FDEE3005B484D /* MYViewController.m in Sources */,
-				98D0F9D0194FDF5B005B484D /* MYScreenshot.m in Sources */,
+				9891A1DF195BC5FB00F10712 /* MYDrawCell.m in Sources */,
+				9891A1D3195A795900F10712 /* MYScreenPlot.m in Sources */,
+				9891A1D0195A762F00F10712 /* MYScreenShotViewController.m in Sources */,
+				9891A1DC195BB6B500F10712 /* MYEditView.m in Sources */,
 				98D0F9AC194FDEAC005B484D /* MYAppDelegate.m in Sources */,
 				98D0FABD1952943A005B484D /* MYPalette.m in Sources */,
 				98D0FABA195292F8005B484D /* MYStroke.m in Sources */,

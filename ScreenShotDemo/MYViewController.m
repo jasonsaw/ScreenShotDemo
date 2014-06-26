@@ -7,7 +7,6 @@
 //
 
 #import "MYViewController.h"
-#import "MYScreenshot.h"
 #import "MYDrawView.h"
 #import "MYPalette.h"
 
@@ -41,13 +40,13 @@
     [super viewDidLoad];
     self.colorArray = @[[UIColor redColor],[UIColor yellowColor],[UIColor blueColor],[UIColor greenColor],[UIColor grayColor],[UIColor lightGrayColor]];
     self.title = @"涂鸦";
-//    self.myDrawView = [[MYDrawView alloc] initWithFrame:self.view.bounds];
-//    self.myDrawView.currentColor = [UIColor redColor];
-//    self.myDrawView.currentSize = 5;
-//    [self.view addSubview:self.myDrawView];
+    self.myDrawView = [[MYDrawView alloc] initWithFrame:self.view.bounds];
+    self.myDrawView.currentColor = [UIColor redColor];
+    self.myDrawView.currentSize = 5;
+    [self.view addSubview:self.myDrawView];
     
-    self.paletteView = [[MYPalette alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.paletteView];
+//    self.paletteView = [[MYPalette alloc] initWithFrame:self.view.bounds];
+//    [self.view addSubview:self.paletteView];
     [self createDrawFunction];
     [self.view bringSubviewToFront:self.toolView];
 }

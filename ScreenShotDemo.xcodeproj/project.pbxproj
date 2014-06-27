@@ -113,7 +113,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9891A1E0195BC7EF00F10712 /* shapeDraw */ = {
+		9891A1E0195BC7EF00F10712 /* ShapeDraw */ = {
 			isa = PBXGroup;
 			children = (
 				9891A1DA195BB6B500F10712 /* MYEditView.h */,
@@ -121,7 +121,36 @@
 				9891A1DD195BC5FB00F10712 /* MYDrawCell.h */,
 				9891A1DE195BC5FB00F10712 /* MYDrawCell.m */,
 			);
-			name = shapeDraw;
+			name = ShapeDraw;
+			sourceTree = "<group>";
+		};
+		9891A1E3195D0BFA00F10712 /* Stroke */ = {
+			isa = PBXGroup;
+			children = (
+				98D0FAB8195292F8005B484D /* MYStroke.h */,
+				98D0FAB9195292F8005B484D /* MYStroke.m */,
+				98D0FABB1952943A005B484D /* MYPalette.h */,
+				98D0FABC1952943A005B484D /* MYPalette.m */,
+			);
+			name = Stroke;
+			sourceTree = "<group>";
+		};
+		9891A1E4195D0C2400F10712 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9891A1D1195A795900F10712 /* MYScreenPlot.h */,
+				9891A1D2195A795900F10712 /* MYScreenPlot.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		9891A1E5195D0C3400F10712 /* Stroke2 */ = {
+			isa = PBXGroup;
+			children = (
+				98D0FAAE195128F3005B484D /* MYDrawView.h */,
+				98D0FAAF195128F3005B484D /* MYDrawView.m */,
+			);
+			name = Stroke2;
 			sourceTree = "<group>";
 		};
 		98D0F98F194FDEAC005B484D = {
@@ -158,7 +187,7 @@
 		98D0F9A1194FDEAC005B484D /* ScreenShotDemo */ = {
 			isa = PBXGroup;
 			children = (
-				98D0F9CD194FDF5B005B484D /* sreenshot */,
+				98D0F9CD194FDF5B005B484D /* Sreenshot */,
 				98D0F9AA194FDEAC005B484D /* MYAppDelegate.h */,
 				98D0F9AB194FDEAC005B484D /* MYAppDelegate.m */,
 				98D0F9CA194FDEE3005B484D /* MYViewController.h */,
@@ -202,19 +231,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		98D0F9CD194FDF5B005B484D /* sreenshot */ = {
+		98D0F9CD194FDF5B005B484D /* Sreenshot */ = {
 			isa = PBXGroup;
 			children = (
-				9891A1E0195BC7EF00F10712 /* shapeDraw */,
-				98D0FAAE195128F3005B484D /* MYDrawView.h */,
-				98D0FAAF195128F3005B484D /* MYDrawView.m */,
-				98D0FAB8195292F8005B484D /* MYStroke.h */,
-				98D0FAB9195292F8005B484D /* MYStroke.m */,
-				98D0FABB1952943A005B484D /* MYPalette.h */,
-				98D0FABC1952943A005B484D /* MYPalette.m */,
-				9891A1D1195A795900F10712 /* MYScreenPlot.h */,
-				9891A1D2195A795900F10712 /* MYScreenPlot.m */,
+				9891A1E3195D0BFA00F10712 /* Stroke */,
+				9891A1E5195D0C3400F10712 /* Stroke2 */,
+				9891A1E4195D0C2400F10712 /* Common */,
+				9891A1E0195BC7EF00F10712 /* ShapeDraw */,
 			);
+			name = Sreenshot;
 			path = sreenshot;
 			sourceTree = "<group>";
 		};

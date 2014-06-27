@@ -47,7 +47,7 @@
             if (!shapeCellView) {
                 shapeCellView = [[MYDrawCell alloc] init];
                 shapeCellView.tag = tag;
-//                [self addDeleteButton:shapeCellView];
+                shapeCellView.celldelegate = self;
                 [self addSubview:shapeCellView];
                 [self.arrayCellView addObject:shapeCellView];
             }
@@ -73,31 +73,47 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    NSLog(@"touchesBegan editView");
     NSMutableArray *arrayPointsInStroke = [NSMutableArray array]; //点数组，相当于一个笔画
-    
     NSMutableDictionary *dictStroke = [NSMutableDictionary dictionary];
     CGPoint point = [[touches anyObject] locationInView:self];
     [arrayPointsInStroke addObject:NSStringFromCGPoint(point)];
     
     NSInteger maxTag= [self fetchMaxTag] + 1;
+    NSLog(@"maxTagtouchesBegan = [%d]",maxTag);
     [dictStroke setObject:[NSNumber numberWithInteger:maxTag] forKey:@"viewtag"];
     [dictStroke setObject:arrayPointsInStroke forKey:@"points"];
     [dictStroke setObject:[NSNumber numberWithInt:self.drawShapeType] forKey:@"shapeType"];
     [dictStroke setObject:self.currentColor forKey:@"color"];
     [dictStroke setObject:[NSNumber numberWithFloat:self.currentSize] forKey:@"size"];
     
+    [dictStroke setObject:[NSNumber numberWithFloat:point.x] forKey:@"xMin"];
+    [dictStroke setObject:[NSNumber numberWithFloat:point.x] forKey:@"xMax"];
+    [dictStroke setObject:[NSNumber numberWithFloat:point.y] forKey:@"yMin"];
+    [dictStroke setObject:[NSNumber numberWithFloat:point.y] forKey:@"yMax"];
+    
     [self.arrayStrokes addObject:dictStroke];//添加的是一个字典：点数组，颜色，粗细
+    NSLog(@"self.arrayStrokes.count = [%d]",self.arrayStrokes.count);
 }
 
 // Add each point to points array
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    NSLog(@"touchesMoved editView");
     CGPoint point = [[touches anyObject] locationInView:self];
-    NSLog(@"point = %@",NSStringFromCGPoint(point));
     CGPoint prevPoint = [[touches anyObject] previousLocationInView:self];
     NSMutableArray *arrayPointsInStroke = [[self.arrayStrokes lastObject] objectForKey:@"points"];
     [arrayPointsInStroke addObject:NSStringFromCGPoint(point)];
     
+    float xMin = point.x>[[[self.arrayStrokes lastObject] objectForKey:@"xMin"] floatValue]?[[[self.arrayStrokes lastObject] objectForKey:@"xMin"] floatValue]:point.x;
+    float xMax = point.x>[[[self.arrayStrokes lastObject] objectForKey:@"xMax"] floatValue]?point.x:[[[self.arrayStrokes lastObject] objectForKey:@"xMax"] floatValue];
+    float yMin = point.y>[[[self.arrayStrokes lastObject] objectForKey:@"yMin"] floatValue]?[[[self.arrayStrokes lastObject] objectForKey:@"yMin"] floatValue]:point.y;
+    float yMax = point.y>[[[self.arrayStrokes lastObject] objectForKey:@"yMax"] floatValue]?point.y:[[[self.arrayStrokes lastObject] objectForKey:@"yMax"] floatValue];
+    
+    [[self.arrayStrokes lastObject] setObject:[NSNumber numberWithFloat:xMin] forKey:@"xMin"];
+    [[self.arrayStrokes lastObject] setObject:[NSNumber numberWithFloat:xMax] forKey:@"xMax"];
+    [[self.arrayStrokes lastObject] setObject:[NSNumber numberWithFloat:yMin] forKey:@"yMin"];
+    [[self.arrayStrokes lastObject] setObject:[NSNumber numberWithFloat:yMax] forKey:@"yMax"];
     
     CGRect rectToRedraw = CGRectMake(\
                                      ((prevPoint.x>point.x)?point.x:prevPoint.x)-self.currentSize,\
@@ -108,32 +124,59 @@
     [self setNeedsDisplayInRect:rectToRedraw];
 }
 
-- (void)addGestureWithView:(UIView*)view
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeToEditState:)];
-    [view addGestureRecognizer:tap];
+    NSLog(@"touchesEnded editView");
+    if ([self isOnlyOnePoint]) {
+        [self.arrayStrokes removeLastObject];
+    } else if ([self isDrawEreaLessThanDeleteButton]) {
+        [self removeLastCellView];
+    }
 }
 
-- (void)changeToEditState:(UITapGestureRecognizer *)sender
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    MYDrawCell *view = (MYDrawCell*)sender.view;
+    NSLog(@"touchesCancelled editView");
+    if ([self isOnlyOnePoint]) {
+        [self.arrayStrokes removeLastObject];
+    } else if ([self isDrawEreaLessThanDeleteButton]) {
+        [self removeLastCellView];
+    }
+    
 }
 
-- (void)addDeleteButton:(MYDrawCell*)cellView
+- (BOOL)isOnlyOnePoint
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    float width = 20;
-    button.frame = CGRectMake(cellView.frame.origin.x+cellView.frame.size.width-width, cellView.frame.origin.y-width/2, width, width);
-    button.backgroundColor = [UIColor clearColor];
-    button.tag = cellView.tag;
-    [button setBackgroundImage:[UIImage imageNamed:@"delete.png"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(deleteCellView:) forControlEvents:UIControlEventTouchUpInside];
-    [cellView addSubview:button];
+    if (self.arrayStrokes.count>0) {
+        NSMutableArray *arrayPointsInStroke = [[self.arrayStrokes lastObject] objectForKey:@"points"];
+        if (arrayPointsInStroke.count==1) {//触碰了屏幕，点击了一下，此时应该不去绘图。
+            return TRUE;
+        }
+    }
+    return false;
 }
 
-- (void)deleteCellView:(UIButton*)button
+//若绘图区域比删除按钮都还小，移除此绘图。
+- (BOOL)isDrawEreaLessThanDeleteButton
 {
-    NSInteger tag = button.tag;
+    if (self.arrayStrokes.count>0) {
+        float xMin = [[[self.arrayStrokes lastObject] objectForKey:@"xMin"] floatValue];
+        float xMax = [[[self.arrayStrokes lastObject] objectForKey:@"xMax"] floatValue];
+        float yMin = [[[self.arrayStrokes lastObject] objectForKey:@"yMin"] floatValue];
+        float yMax = [[[self.arrayStrokes lastObject] objectForKey:@"yMax"] floatValue];
+        
+        float width = xMax - xMin;
+        float heigh = yMax - yMin;
+        
+        if (width<20&&heigh<20) {
+            return TRUE;
+        }
+    }
+    return false;
+}
+
+- (void)removeCellView:(NSInteger)tag
+{
     [self deleteCellViewFromArrayWithTag:tag];
 }
 
@@ -144,6 +187,7 @@
         if (tag == cellView.tag) {
             [cellView removeFromSuperview];
             [self.arrayCellView removeObject:cellView];
+            [self removeStrokeObjWithTag:tag];
             break;
         }
     }
@@ -164,13 +208,50 @@
     if (self.arrayCellView.count>0) {
         UIView *cellView = [self.arrayCellView objectAtIndex:0];
         NSInteger maxTag = cellView.tag;
-        for (int i=1;i<self.arrayCellView.count;i++) {
+        for (int i=0;i<self.arrayCellView.count;i++) {
             UIView *cell = [self.arrayCellView objectAtIndex:i];
             maxTag = maxTag>cell.tag?maxTag:cell.tag;
         }
+        NSLog(@"maxTag = [%d]",maxTag);
         return maxTag;
     }
     return 1;
 }
 
+- (NSInteger)removeStrokeObjWithTag:(NSInteger)tag
+{
+    NSInteger index = 0;
+    NSInteger count = self.arrayStrokes.count;
+    for (int i = 0 ;i < count ; i++) {
+        NSMutableDictionary *dic = [self.arrayStrokes objectAtIndex:i];
+        if (tag == [[dic objectForKey:@"viewtag"] integerValue]) {
+            [self.arrayStrokes removeObjectAtIndex:i];
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+- (void)removeLastCellView
+{
+    if (self.arrayCellView) {
+        MYDrawCell *lastCellView = [self.arrayCellView lastObject];
+        [lastCellView removeFromSuperview];
+        [self.arrayCellView removeLastObject];
+        [self.arrayStrokes removeLastObject];
+    }
+}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UIView *result = [super hitTest:point withEvent:event];
+    for (int i = 0 ; i<self.arrayCellView.count; i++) {
+        MYDrawCell *cellview = [self.arrayCellView objectAtIndex:i];
+        CGPoint buttonPoint = [cellview.deleteButton convertPoint:point fromView:self];
+        if ([cellview.deleteButton pointInside:buttonPoint withEvent:event]) {
+            return cellview.deleteButton;
+        }
+    }
+    return result;
+}
 @end

@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "MYDrawCell.h"
 
-@interface MYEditView : UIView
+@interface MYEditView : UIView <removeCellViewDelete>
 
 @property (nonatomic,strong) UIColor *currentColor;//保存当前画笔的颜色
 @property (nonatomic,assign) float    currentSize;//当前画笔的大小

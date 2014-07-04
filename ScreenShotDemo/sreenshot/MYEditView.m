@@ -9,6 +9,9 @@
 #import "MYEditView.h"
 
 @interface MYEditView()
+{
+    MYDrawCell *textCellView;
+}
 
 @property (nonatomic,strong) NSMutableArray *arrayStrokes;//保存画笔
 @property (nonatomic,strong) NSMutableArray *arrayCellView;//保存绘图的每个子view
@@ -31,6 +34,31 @@
     return self;
 }
 
+- (void)setDrawType:(DrawType)drawType
+{
+    _drawType = drawType;
+    if (_drawType == DrawFont) {
+        if (!textCellView) {
+            textCellView = [[MYDrawCell alloc] initWithFrame:CGRectMake(100, 200, 100, 35)];
+            textCellView.backgroundColor = [UIColor clearColor];
+            textCellView.drawTextFont = self.drawTextFont;
+            textCellView.drawMarkOrOther = DrawFont;
+            textCellView.tag = [self fetchMaxTag];
+            textCellView.celldelegate = self;
+            
+            UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handelPan:)];
+            [textCellView addGestureRecognizer:panGesture];
+            [self addSubview:textCellView];
+            [self.arrayCellView addObject:textCellView];
+        }
+    }
+}
+
+-(void)handelPan:(UIPanGestureRecognizer*)gestureRecognizer{
+    CGPoint curPoint = [gestureRecognizer locationInView:self];
+    [textCellView setCenter:curPoint];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -47,6 +75,7 @@
             if (!shapeCellView) {
                 shapeCellView = [[MYDrawCell alloc] init];
                 shapeCellView.tag = tag;
+                shapeCellView.drawMarkOrOther = DrawMark;
                 shapeCellView.celldelegate = self;
                 [self addSubview:shapeCellView];
                 [self.arrayCellView addObject:shapeCellView];
@@ -67,6 +96,9 @@
                 shapeCellView.frame = CGRectMake(pointStart.x, pointStart.y, pointNext.x-pointStart.x, pointNext.y - pointStart.y);
                 [shapeCellView setNeedsDisplay];
             }
+            if (textCellView) {
+                [self bringSubviewToFront:textCellView];
+            }
         }
     }
 }
@@ -74,13 +106,14 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSLog(@"touchesBegan editView");
+    [self endEditing:YES];
+
     NSMutableArray *arrayPointsInStroke = [NSMutableArray array]; //点数组，相当于一个笔画
     NSMutableDictionary *dictStroke = [NSMutableDictionary dictionary];
     CGPoint point = [[touches anyObject] locationInView:self];
     [arrayPointsInStroke addObject:NSStringFromCGPoint(point)];
     
     NSInteger maxTag= [self fetchMaxTag] + 1;
-    NSLog(@"maxTagtouchesBegan = [%d]",maxTag);
     [dictStroke setObject:[NSNumber numberWithInteger:maxTag] forKey:@"viewtag"];
     [dictStroke setObject:arrayPointsInStroke forKey:@"points"];
     [dictStroke setObject:[NSNumber numberWithInt:self.drawShapeType] forKey:@"shapeType"];
@@ -93,13 +126,11 @@
     [dictStroke setObject:[NSNumber numberWithFloat:point.y] forKey:@"yMax"];
     
     [self.arrayStrokes addObject:dictStroke];//添加的是一个字典：点数组，颜色，粗细
-    NSLog(@"self.arrayStrokes.count = [%d]",self.arrayStrokes.count);
 }
 
 // Add each point to points array
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"touchesMoved editView");
     CGPoint point = [[touches anyObject] locationInView:self];
     CGPoint prevPoint = [[touches anyObject] previousLocationInView:self];
     NSMutableArray *arrayPointsInStroke = [[self.arrayStrokes lastObject] objectForKey:@"points"];
@@ -122,6 +153,8 @@
                                      fabs(point.y-prevPoint.y)+2*self.currentSize\
                                      );
     [self setNeedsDisplayInRect:rectToRedraw];
+    NSLog(@"touchesMoved editView");
+    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -142,7 +175,6 @@
     } else if ([self isDrawEreaLessThanDeleteButton]) {
         [self removeLastCellView];
     }
-    
 }
 
 - (BOOL)isOnlyOnePoint
@@ -245,6 +277,10 @@
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     UIView *result = [super hitTest:point withEvent:event];
+    if ([result isKindOfClass:[UITextView class]]) {
+        return result;
+    }
+    
     for (int i = 0 ; i<self.arrayCellView.count; i++) {
         MYDrawCell *cellview = [self.arrayCellView objectAtIndex:i];
         CGPoint buttonPoint = [cellview.deleteButton convertPoint:point fromView:self];

@@ -15,6 +15,9 @@
 		9891A1DC195BB6B500F10712 /* MYEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9891A1DB195BB6B500F10712 /* MYEditView.m */; };
 		9891A1DF195BC5FB00F10712 /* MYDrawCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9891A1DE195BC5FB00F10712 /* MYDrawCell.m */; };
 		9891A1E2195C1ADA00F10712 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 9891A1E1195C1ADA00F10712 /* delete.png */; };
+		98B7D4DF19624FFE00D3365A /* MYEditBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B7D4DE19624FFE00D3365A /* MYEditBaseView.m */; };
+		98B7D4E119640B3100D3365A /* eidt_icon_rotate_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B7D4E019640B3100D3365A /* eidt_icon_rotate_n@2x.png */; };
+		98B7D4E319640B4100D3365A /* eidt_icon_off_p@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B7D4E219640B4100D3365A /* eidt_icon_off_p@2x.png */; };
 		98D0F99C194FDEAC005B484D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D0F99B194FDEAC005B484D /* Foundation.framework */; };
 		98D0F99E194FDEAC005B484D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D0F99D194FDEAC005B484D /* CoreGraphics.framework */; };
 		98D0F9A0194FDEAC005B484D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D0F99F194FDEAC005B484D /* UIKit.framework */; };
@@ -59,6 +62,10 @@
 		9891A1DD195BC5FB00F10712 /* MYDrawCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDrawCell.h; sourceTree = "<group>"; };
 		9891A1DE195BC5FB00F10712 /* MYDrawCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDrawCell.m; sourceTree = "<group>"; };
 		9891A1E1195C1ADA00F10712 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		98B7D4DD19624FFE00D3365A /* MYEditBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEditBaseView.h; sourceTree = "<group>"; };
+		98B7D4DE19624FFE00D3365A /* MYEditBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEditBaseView.m; sourceTree = "<group>"; };
+		98B7D4E019640B3100D3365A /* eidt_icon_rotate_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eidt_icon_rotate_n@2x.png"; sourceTree = "<group>"; };
+		98B7D4E219640B4100D3365A /* eidt_icon_off_p@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eidt_icon_off_p@2x.png"; sourceTree = "<group>"; };
 		98D0F998194FDEAC005B484D /* ScreenShotDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenShotDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98D0F99B194FDEAC005B484D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		98D0F99D194FDEAC005B484D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,6 +123,8 @@
 		9891A1E0195BC7EF00F10712 /* ShapeDraw */ = {
 			isa = PBXGroup;
 			children = (
+				98B7D4DD19624FFE00D3365A /* MYEditBaseView.h */,
+				98B7D4DE19624FFE00D3365A /* MYEditBaseView.m */,
 				9891A1DA195BB6B500F10712 /* MYEditView.h */,
 				9891A1DB195BB6B500F10712 /* MYEditView.m */,
 				9891A1DD195BC5FB00F10712 /* MYDrawCell.h */,
@@ -246,6 +255,8 @@
 		98D0F9D5194FE0ED005B484D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				98B7D4E219640B4100D3365A /* eidt_icon_off_p@2x.png */,
+				98B7D4E019640B3100D3365A /* eidt_icon_rotate_n@2x.png */,
 				9891A1E1195C1ADA00F10712 /* delete.png */,
 				9891A1D4195ACB9100F10712 /* 1.png */,
 				9891A1D5195ACB9100F10712 /* 2.png */,
@@ -331,7 +342,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B7D4E319640B4100D3365A /* eidt_icon_off_p@2x.png in Resources */,
 				9891A1E2195C1ADA00F10712 /* delete.png in Resources */,
+				98B7D4E119640B3100D3365A /* eidt_icon_rotate_n@2x.png in Resources */,
 				9891A1D8195ACB9100F10712 /* 2.png in Resources */,
 				98D0F9A6194FDEAC005B484D /* InfoPlist.strings in Resources */,
 				98D0F9AE194FDEAC005B484D /* Images.xcassets in Resources */,
@@ -360,6 +373,7 @@
 				98D0F9CC194FDEE3005B484D /* MYViewController.m in Sources */,
 				9891A1DF195BC5FB00F10712 /* MYDrawCell.m in Sources */,
 				9891A1D3195A795900F10712 /* MYScreenPlot.m in Sources */,
+				98B7D4DF19624FFE00D3365A /* MYEditBaseView.m in Sources */,
 				9891A1D0195A762F00F10712 /* MYScreenShotViewController.m in Sources */,
 				9891A1DC195BB6B500F10712 /* MYEditView.m in Sources */,
 				98D0F9AC194FDEAC005B484D /* MYAppDelegate.m in Sources */,

@@ -41,20 +41,22 @@
     UIGraphicsBeginImageContext(currentView.frame.size); //currentView 当前的view
     [currentView.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    
     UIGraphicsEndImageContext();
     
     return viewImage;
 }
 
-+ (void)screenShotWithViewToPhotosAlbum:(UIView *)currentView
++ (void)screenShotWithViewToPhotosAlbum:(UIView *)currentView withRect:(CGRect)rect
 {
     UIGraphicsBeginImageContext(currentView.frame.size); //currentView 当前的view
     [currentView.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *resultImg = [UIImage imageWithCGImage:CGImageCreateWithImageInRect(viewImage.CGImage,rect)];
     UIGraphicsEndImageContext();
     
     //viewImage就是获取的截图，如果要将图片存入相册，只需在后面调用
-    UIImageWriteToSavedPhotosAlbum(viewImage,nil,nil,nil);
+    UIImageWriteToSavedPhotosAlbum(resultImg,nil,nil,nil);
 }
 /*
 // Only override drawRect: if you perform custom drawing.

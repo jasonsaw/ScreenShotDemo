@@ -11,7 +11,7 @@
 @protocol EditeViewDelegate <NSObject>
 
 - (void)cancelEdit;
-- (void)complateEdite:(UIView*)screenView;
+- (void)complateEdite:(UIView*)screenView shotRect:(CGRect)rect;
 - (void)shareScreen:(UIView*)screenView;
 
 @end

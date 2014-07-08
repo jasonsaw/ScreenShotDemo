@@ -40,6 +40,35 @@
     [self.view addSubview:backImageView];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(screenShot:)];
+    
+    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
+    NSArray *fontNames;
+    NSInteger indFamily, indFont;
+    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
+    {
+        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
+        fontNames = [[NSArray alloc] initWithArray:
+                     [UIFont fontNamesForFamilyName:
+                      [familyNames objectAtIndex:indFamily]]];
+        for (indFont=0; indFont<[fontNames count]; ++indFont)
+        {
+            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
+        }
+    }
+    
+    UILabel *fontText = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, 320, 40)];
+    fontText.text = @"我要自定义字体woyaoceshiti1234567890";
+    fontText.font = [UIFont fontWithName:@"Heiti SC" size:16];
+    fontText.backgroundColor = [UIColor clearColor];
+    fontText.textColor = [UIColor blackColor];
+    [self.view addSubview:fontText];
+    
+    UILabel *fontText2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 160, 320, 40)];
+    fontText2.text = @"我要自定义字体woyaoceshiti1234567890";
+    fontText2.font = [UIFont fontWithName:@"Heiti TC" size:16];
+    fontText2.backgroundColor = [UIColor clearColor];
+    fontText2.textColor = [UIColor blackColor];
+    [self.view addSubview:fontText2];
     // Do any additional setup after loading the view.
 }
 
@@ -91,9 +120,9 @@
     [editBaseView removeFromSuperview];
 }
 
-- (void)complateEdite:(UIView*)screenView
+- (void)complateEdite:(UIView*)screenView shotRect:(CGRect)rect
 {
-    [MYScreenPlot screenShotWithViewToPhotosAlbum:screenView];
+    [MYScreenPlot screenShotWithViewToPhotosAlbum:screenView withRect:rect];
     [editBaseView removeFromSuperview];
     
 }

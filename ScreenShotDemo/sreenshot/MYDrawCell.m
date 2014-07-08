@@ -8,7 +8,7 @@
 
 #import "MYDrawCell.h"
 
-#define kButtonWidth 20
+#define kButtonWidth 15
 #define kMarginBorderSide 0
 
 @interface MYDrawCell()

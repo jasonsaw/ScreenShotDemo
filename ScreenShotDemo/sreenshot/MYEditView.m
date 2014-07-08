@@ -34,6 +34,16 @@
     return self;
 }
 
+- (void)setDrawTextFont:(UIFont *)drawTextFont
+{
+    _drawTextFont = drawTextFont;
+    if (_drawType == DrawFont) {
+        if (textCellView) {
+            textCellView.drawTextFont = _drawTextFont;
+        }
+    }
+}
+
 - (void)setDrawType:(DrawType)drawType
 {
     _drawType = drawType;

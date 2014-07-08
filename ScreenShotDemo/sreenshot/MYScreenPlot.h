@@ -11,6 +11,6 @@
 @interface MYScreenPlot : UIView
 
 + (UIImage *)screenShotWithView:(UIView *)currentView;
-+ (void)screenShotWithViewToPhotosAlbum:(UIView *)currentView;
++ (void)screenShotWithViewToPhotosAlbum:(UIView *)currentView withRect:(CGRect)rect;
 - (id)initWithView:(UIView*)editView;
 @end
